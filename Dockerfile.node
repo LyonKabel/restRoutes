@@ -1,0 +1,18 @@
+FROM node:latest
+
+
+RUN npm install -g @jworkman-fs/wdv-cli
+RUN npm install @jworkman-fs/asl
+
+
+WORKDIR /app
+
+
+COPY package*.json ./
+
+
+RUN npm install
+
+COPY . .
+
+CMD ["node", "app.js"]
